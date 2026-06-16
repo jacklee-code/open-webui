@@ -162,7 +162,7 @@
 
 									{#if $config?.features?.enable_version_update_check}
 										<a
-											href="https://github.com/open-webui/open-webui/releases/tag/v{version.latest}"
+											href="https://github.com/jacklee-code/open-webui/releases/tag/v{version.latest}"
 											target="_blank"
 										>
 											{updateAvailable === null
@@ -206,13 +206,13 @@
 									{$i18n.t('Help')}
 								</div>
 								<div class=" text-xs text-gray-500">
-									{$i18n.t('Discover how to use Open WebUI and seek support from the community.')}
+									{$i18n.t('Discover how to use JackAI and seek support from the community.')}
 								</div>
 							</div>
 
 							<a
 								class="flex-shrink-0 text-xs font-medium underline"
-								href="https://docs.openwebui.com/"
+								href="https://github.com/jacklee-code/open-webui"
 								target="_blank"
 							>
 								{$i18n.t('Documentation')}
@@ -224,21 +224,21 @@
 								<a href="https://discord.gg/5rJgQTnV4s" target="_blank">
 									<img
 										alt="Discord"
-										src="https://img.shields.io/badge/Discord-Open_WebUI-blue?logo=discord&logoColor=white"
+										src="https://img.shields.io/badge/Discord-JackAI-blue?logo=discord&logoColor=white"
 									/>
 								</a>
 
-								<a href="https://twitter.com/OpenWebUI" target="_blank">
+								<a href="https://twitter.com/JackAI" target="_blank">
 									<img
 										alt="X (formerly Twitter) Follow"
-										src="https://img.shields.io/twitter/follow/OpenWebUI"
+										src="https://img.shields.io/twitter/follow/JackAI"
 									/>
 								</a>
 
-								<a href="https://github.com/open-webui/open-webui" target="_blank">
+								<a href="https://github.com/jacklee-code/open-webui" target="_blank">
 									<img
 										alt="Github Repo"
-										src="https://img.shields.io/github/stars/open-webui/open-webui?style=social&label=Star us on Github"
+										src="https://img.shields.io/github/stars/jacklee-code/open-webui?style=social&label=Star us on Github"
 									/>
 								</a>
 							</div>
