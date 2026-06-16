@@ -1,5 +1,8 @@
 import { OPENAI_API_BASE_URL, WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
 
+const getOpenAIErrorMessage = (err: any) =>
+	err?.error?.message ?? err?.message ?? err?.detail ?? 'Network Problem';
+
 export const getOpenAIConfig = async (token: string = '') => {
 	let error = null;
 
@@ -90,7 +93,7 @@ export const getOpenAIModelsDirect = async (url: string, key: string) => {
 			return res.json();
 		})
 		.catch((err) => {
-			error = `OpenAI: ${err?.error?.message ?? 'Network Problem'}`;
+			error = `OpenAI: ${getOpenAIErrorMessage(err)}`;
 			return [];
 		});
 
@@ -120,7 +123,7 @@ export const getOpenAIModels = async (token: string, urlIdx?: number) => {
 			return res.json();
 		})
 		.catch((err) => {
-			error = `OpenAI: ${err?.error?.message ?? 'Network Problem'}`;
+			error = `OpenAI: ${getOpenAIErrorMessage(err)}`;
 			return [];
 		});
 
@@ -158,7 +161,7 @@ export const verifyOpenAIConnection = async (
 				return res.json();
 			})
 			.catch((err) => {
-				error = `OpenAI: ${err?.error?.message ?? 'Network Problem'}`;
+				error = `OpenAI: ${getOpenAIErrorMessage(err)}`;
 				return [];
 			});
 
@@ -184,7 +187,7 @@ export const verifyOpenAIConnection = async (
 				return res.json();
 			})
 			.catch((err) => {
-				error = `OpenAI: ${err?.error?.message ?? 'Network Problem'}`;
+				error = `OpenAI: ${getOpenAIErrorMessage(err)}`;
 				return [];
 			});
 
