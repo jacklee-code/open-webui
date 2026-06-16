@@ -45,6 +45,7 @@ from open_webui.utils.misc import (
     convert_logit_bias_input_to_json,
     stream_chunks_handler,
 )
+from open_webui.utils.openai_errors import format_openai_verify_error_detail
 from open_webui.utils.payload import (
     apply_model_params_to_body_openai,
     apply_system_prompt_to_body,
@@ -742,13 +743,15 @@ async def verify_connection(
 
                     return response_data
 
+        except HTTPException:
+            raise
         except aiohttp.ClientError as e:
             # ClientError covers all aiohttp requests issues
             log.exception(f'Client error: {str(e)}')
-            raise HTTPException(status_code=500, detail=ERROR_MESSAGES.SERVER_CONNECTION_ERROR)
+            raise HTTPException(status_code=500, detail=format_openai_verify_error_detail(e))
         except Exception as e:
             log.exception(f'Unexpected error: {e}')
-            raise HTTPException(status_code=500, detail=ERROR_MESSAGES.SERVER_CONNECTION_ERROR)
+            raise HTTPException(status_code=500, detail=format_openai_verify_error_detail(e))
 
 
 def get_azure_allowed_params(api_version: str) -> set[str]:
